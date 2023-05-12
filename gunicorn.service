@@ -1,12 +1,13 @@
 [Unit]
 Description=gunicorn daemon
+Requires=gunicorn.socket
 After=network.target
 
 [Service]
-User=sammy
+User=asher
 Group=www-data
-WorkingDirectory=C:/Users/mashe/.jenkins/workspace/Django-CICD/DjangoAPI
-ExecStart=/home/sammy/myproject/myprojectenv/bin/gunicorn --access-logfile - --workers 3 --bind unix:/home/sammy/myproject/myproject.sock myproject.wsgi:application
+WorkingDirectory=/var/lib/jenkins/workspace/Django-CICD/DjangoAPI
+ExecStart=/var/lib/jenkins/workspace/Django-CICD/env/bin/gunicorn --workers 3 --log-level debug --error-logfile /var/lib/jenkins/workspace/Django-CICD/error.log --bind unix:/run/gunicorn.sock DjangoAPI.wsgi:application
 
 [Install]
 WantedBy=multi-user.target

@@ -4,11 +4,10 @@ if [ -d "env" ]
 then
     echo "Python virtual env exists"
 else
-    pip install virtualenv
-    virtualenv env
+    python3 -m venv env
 fi
 
-env\Scripts\activate
+source env/bin/activate
 
 pip3 install -r requirements.txt
 
@@ -20,5 +19,5 @@ else
     touch logs/error.log logs/access.log
 fi
 
-cacls logs /g everyone:f
+sudo chmod -R 777 logs
 echo "envsetup is finished"
