@@ -1,6 +1,6 @@
 # Workout-Tracker
 Experimented with Django and Angular.js to create a workout tracker tool  
-Created a CI/CD pipeline using jenkins  
+Created a CI/CD pipeline using jenkins on a LINUX environment  
 
 Checking the jenkins pipeline:  
 1. run java -jar jenkins.war --httpPort=8080  
