@@ -1,6 +1,6 @@
 #!/bin/bash
 
-env\Scripts\activate
+env/Scripts/activate
 
 cd C:/Users/mashe/.jenkins/workspace/Django-CICD/DjangoAPI
 
@@ -23,5 +23,5 @@ systemctl enable gunicorn
 
 echo "Gunicorn has started"
 
-systemctl status gunicorn
 systemctl restart gunicorn
+systemctl status gunicorn

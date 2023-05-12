@@ -1,18 +1,18 @@
 #!/bin/bash
 
-if [-d "env"]
+if [ -d "env" ]
 then
     echo "Python virtual env exists"
 else
-    python3 -m venv env
+    pip install virtualenv
+    virtualenv env
 fi
 
-echo $PWD
-source env/bin/activate
+env\Scripts\activate
 
 pip3 install -r requirements.txt
 
-if [-d "logs"]
+if [ -d "logs" ]
 then
     echo "Log folder exists"
 else
@@ -20,5 +20,5 @@ else
     touch logs/error.log logs/access.log
 fi
 
-sudo chmod -R 777 logs
+cacls logs /g everyone:f
 echo "envsetup is finished"

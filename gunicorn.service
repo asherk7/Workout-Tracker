@@ -5,7 +5,7 @@ After=network.target
 [Service]
 User=sammy
 Group=www-data
-WorkingDirectory=/home/sammy/myproject
+WorkingDirectory=C:/Users/mashe/.jenkins/workspace/Django-CICD/DjangoAPI
 ExecStart=/home/sammy/myproject/myprojectenv/bin/gunicorn --access-logfile - --workers 3 --bind unix:/home/sammy/myproject/myproject.sock myproject.wsgi:application
 
 [Install]
