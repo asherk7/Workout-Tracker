@@ -7,11 +7,27 @@ Technologies used: ![DjangoREST](https://img.shields.io/badge/DJANGO-REST-ff1709
 
 ### Checking the jenkins CI/CD pipeline
 
-1. Run
+1. Install Jenkins
     ```sh
-    java -jar jenkins.war --httpPort=8080  
+    wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -
+
+    sudo sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list'
+
+    sudo apt-get update
+
+    sudo apt-get install jenkins
     ```
-2. Go to http://localhost:8080 and check the pipeline
+2. Create the jenkins server
+    ```sh
+    sudo systemctl daemon-reload
+
+    sudo systemctl start jenkins
+    ```
+3. Make sure the server is running
+    ```sh
+    sudo systemctl status jenkins
+    ```
+4. Go to http://localhost:8080 and check the pipeline
 
 ### Installation
  
