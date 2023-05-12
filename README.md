@@ -3,6 +3,7 @@ Technologies used: ![DjangoREST](https://img.shields.io/badge/DJANGO-REST-ff1709
 * Built a website that can be used to track workouts and personal bests, and can also provide good workout splits and exercises for certain muscle groups  
 * Created the website using Django and Angular.js  
 * Created a CI/CD pipeline using jenkins on a LINUX environment  
+* Utilized Nginx and gunicorn for the web server
 * Used SQLite for the database  
 
 ### Checking the jenkins CI/CD pipeline
