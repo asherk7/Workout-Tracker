@@ -4,7 +4,7 @@ Requires=gunicorn.socket
 After=network.target
 
 [Service]
-User=asher
+User=root
 Group=www-data
 WorkingDirectory=/var/lib/jenkins/workspace/Django-CICD/DjangoAPI
 ExecStart=/var/lib/jenkins/workspace/Django-CICD/env/bin/gunicorn --workers 3 --log-level debug --error-logfile /var/lib/jenkins/workspace/Django-CICD/error.log --bind unix:/run/gunicorn.sock DjangoAPI.wsgi:application
