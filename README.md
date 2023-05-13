@@ -4,7 +4,8 @@ Technologies used: ![DjangoREST](https://img.shields.io/badge/DJANGO-REST-ff1709
 * Created the website using Django and Angular.js  
 * Created a CI/CD pipeline using jenkins on a LINUX environment  
 * Utilized Nginx to increase the perfomance on the webserver  
-* Used gunicorn for increasing the processing speed and running the a gunicorn server in the background
+* Used gunicorn for increasing the processing speed and running the pipeline through the gunicorn server
+* Utilized gunicorn and nginx for the jenkins pipeline for migrations, file collection, and reverse proxy
 * Used SQLite for the database  
 
 ### Checking the jenkins CI/CD pipeline
