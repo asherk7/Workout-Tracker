@@ -28,7 +28,10 @@ Technologies used: ![DjangoREST](https://img.shields.io/badge/DJANGO-REST-ff1709
     ```sh
     sudo systemctl status jenkins
     ```
-4. Go to http://localhost:8080 and check the pipeline
+4. Go to http://localhost:8080 and check the pipeline, to turn it off, run
+    ```sh
+    sudo systemctl stop jenkins
+    ```
 
 ### Installation
  
