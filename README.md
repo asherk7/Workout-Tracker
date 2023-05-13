@@ -3,7 +3,8 @@ Technologies used: ![DjangoREST](https://img.shields.io/badge/DJANGO-REST-ff1709
 * Built a website that can be used to track workouts and personal bests, and can also provide good workout splits and exercises for certain muscle groups  
 * Created the website using Django and Angular.js  
 * Created a CI/CD pipeline using jenkins on a LINUX environment  
-* Utilized Nginx and gunicorn for the web server
+* Utilized Nginx to increase the perfomance on the webserver  
+* Used gunicorn for increasing the processing speed and running the a gunicorn server in the background
 * Used SQLite for the database  
 
 ### Checking the jenkins CI/CD pipeline
@@ -23,6 +24,8 @@ Technologies used: ![DjangoREST](https://img.shields.io/badge/DJANGO-REST-ff1709
     sudo systemctl daemon-reload
 
     sudo systemctl start jenkins
+
+    sudo systemctl start nginx
     ```
 3. Make sure the server is running
     ```sh
@@ -31,6 +34,8 @@ Technologies used: ![DjangoREST](https://img.shields.io/badge/DJANGO-REST-ff1709
 4. Go to http://localhost:8080 and check the pipeline, to turn it off, run
     ```sh
     sudo systemctl stop jenkins
+
+    sudo systemctl stop nginx
     ```
 
 ### Installation
