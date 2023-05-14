@@ -1,14 +1,12 @@
-from django.conf.urls import url
+from django.urls import re_path
 from WorkoutApp import views
 
 urlpatterns = [
-    url(r'^workouts/$', views.workoutsAPI),
-    url(r'^workouts/([0-9]+)$', views.workoutsAPI),
+    re_path(r'^workouts/$', views.workoutsAPI),
+    re_path(r'^workouts/([0-9]+)$', views.workoutsAPI),
 
-    url(r'^personalrecords/$', views.personalrecordsAPI),
-    url(r'^personalrecords/([0-9]+)$', views.personalrecordsAPI),
+    re_path(r'^personalrecords/$', views.personalrecordsAPI),
+    re_path(r'^personalrecords/([0-9]+)$', views.personalrecordsAPI),
 
-    url(r'^muscles/$', views.musclesAPI),
-
-    url(r'^splits/$', views.splitsAPI),
+    re_path(r'^muscles/$', views.musclesAPI),
 ]

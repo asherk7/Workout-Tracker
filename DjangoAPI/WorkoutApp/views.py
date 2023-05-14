@@ -8,9 +8,6 @@ from WorkoutApp.serializers import WorkoutsSerializer, PersonalRecordsSerializer
 
 # Create your views here.
 
-def main(request):
-    pass
-
 @csrf_exempt
 def workoutsAPI(request, id=0):
     if request.method=='GET': 
@@ -40,9 +37,36 @@ def workoutsAPI(request, id=0):
         workout.delete()
         return JsonResponse('Deleted the Workout Successfully', safe=False)
 
-def personalrecordsAPI(request):
-    pass
+@csrf_exempt
+def personalrecordsAPI(request, id=0):
+    if request.method=='GET': 
+        personalrecords = PersonalRecords.objects.all()
+        personalrecords_serializer = PersonalRecordsSerializer(personalrecords, many=True)
+        return JsonResponse(personalrecords_serializer.data, safe=False)
+    
+    elif request.method=="POST":
+        record_data=JSONParser().parse(request)
+        record_serializer = PersonalRecordsSerializer(data=record_data)
+        if record_serializer.is_valid():
+            record_serializer.save()
+            return JsonResponse("Record Added Successfully", safe=False)
+        return JsonResponse("Failed to add Personal Record", safe=False)
+    
+    elif request.method=="PUT":
+        record_data=JSONParser.parse(request)
+        record = PersonalRecords.objects.get(RecordID=record_data['RecordID'])
+        record_serializer = PersonalRecordsSerializer(record, data=record_data)
+        if record_serializer.is_valid():
+            record_serializer.save()
+            return JsonResponse("Updated the Personal Record Successfully", safe=False)
+        return JsonResponse("Failed to Update the Record", safe=False)
+    
+    elif request.method=="DELETE":
+        record=PersonalRecords.objects.get(RecordID=id)
+        record.delete()
+        return JsonResponse('Deleted the Record Successfully', safe=False)
 
+@csrf_exempt
 def musclesAPI(request):
     pass
     """
@@ -55,6 +79,3 @@ def musclesAPI(request):
     else:
         print("Error:", response.status_code, response.text)
     """
-
-def splitsAPI(request):
-    pass

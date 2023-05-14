@@ -16,11 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.conf.urls import url, include
+from django.conf.urls import include
 from WorkoutApp import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", views.main, name='main'),
-    url(r"^", include("WorkoutApp.urls"))
-]
+    #path("", views.main, name='main'),
+    path("workouts/", include("WorkoutApp.urls")),
+    path("personalrecords/", include("WorkoutApp.urls")),
+    path("muscles/", include("WorkoutApp.urls")),
+    ]

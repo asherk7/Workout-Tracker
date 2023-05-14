@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 
 class Exercise(models.Model):
+    ExerciseID = models.AutoField(primary_key=True)
     Name = models.CharField(max_length=50, primary_key=True)
     Sets = models.IntegerField()
     Reps = models.IntegerField()
@@ -21,8 +22,9 @@ class Workouts(models.Model):
     #one workout model contains many exercise models
 
 class PersonalRecords(models.Model):
+    RecordID = models.AutoField(primary_key=True)
     Exercise = models.CharField(max_length=50)
-    Weight = models.IntegerField(primary_key=True)
+    Weight = models.IntegerField()
     Reps = models.IntegerField()
     Date = models.DateField()
     BodyWeight = models.IntegerField()
