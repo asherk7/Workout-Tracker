@@ -30,7 +30,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'; //used to mak
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [CrudService],
   bootstrap: [AppComponent]
