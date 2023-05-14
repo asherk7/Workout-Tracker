@@ -8,11 +8,11 @@ from WorkoutApp.serializers import WorkoutsSerializer, PersonalRecordsSerializer
 
 # Create your views here.
 
-def index(request):
+def main(request):
     pass
 
 @csrf_exempt
-def workouts(request, id=0):
+def workoutsAPI(request, id=0):
     if request.method=='GET': 
         workouts = Workouts.objects.all() #grabs all the model data
         workouts_serializer = WorkoutsSerializer(workout_data, many=True) #turns the data into a JSON
@@ -40,10 +40,10 @@ def workouts(request, id=0):
         workout.delete()
         return JsonResponse('Deleted the Workout Successfully', safe=False)
 
-def personal_records(request):
+def personalrecordsAPI(request):
     pass
 
-def muscle_groups(request):
+def musclesAPI(request):
     pass
     """
     import requests
@@ -56,5 +56,5 @@ def muscle_groups(request):
         print("Error:", response.status_code, response.text)
     """
 
-def splits(request):
+def splitsAPI(request):
     pass
