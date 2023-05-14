@@ -7,14 +7,14 @@ from WorkoutApp.models import Workouts, Exercise, PersonalRecords
 class WorkoutsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Workouts
-        fields = ('workoutid', 'split', 'date', 'duration', 'exercises')
+        fields = '__all__' #takes in all fields from the model
 
 class ExerciseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Exercise
-        fields = ('name', 'sets', 'reps', 'weight')
+        fields = '_all__'
 
-class PersonalBestSerializer(serializers.ModelSerializer):
+class PersonalRecordsSerializer(serializers.ModelSerializer):
     class Meta:
         model = PersonalRecords
-        fields = ('exercise', 'weight', 'reps', 'date', 'bodyweight')
+        fields = '__all__'

@@ -7,6 +7,9 @@ class Exercise(models.Model):
     Sets = models.IntegerField()
     Reps = models.IntegerField()
     Weight = models.IntegerField()
+
+    def __repr__(self):
+        return self.Name
     #related name is used to access all the exercise models associated with the workout model
 
 class Workouts(models.Model):
