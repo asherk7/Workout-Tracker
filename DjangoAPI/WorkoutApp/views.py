@@ -13,7 +13,7 @@ from WorkoutApp.serializers import WorkoutsSerializer, PersonalRecordsSerializer
 def workoutsAPI(request, id=0):
     if request.method=='GET': 
         workouts = Workouts.objects.all() #grabs all the model data
-        workouts_serializer = WorkoutsSerializer(workout_data, many=True) #turns the data into a JSON
+        workouts_serializer = WorkoutsSerializer(workouts, many=True) #turns the data into a JSON
         return JsonResponse(workouts_serializer.data, safe=False) #returns the JSON
     
     elif request.method=='POST':
@@ -79,7 +79,7 @@ def musclesAPI(request,id=0):
         muscle = muscle_data['muscle']
         api_url = 'https://api.api-ninjas.com/v1/exercises?muscle={}'.format(muscle)
         response = requests.get(api_url, headers={'X-Api-Key': 'bjYevCAS2Tzqek1eiKWLEg==p7fCMIQqd5OW593q'})
-        exercises = ''
+        exercises = ""
         if response.status_code == requests.codes.ok:
             for i in response.text:
                 exercises += i['name'] + ", "
@@ -99,7 +99,7 @@ def musclesAPI(request,id=0):
         muscle = muscle_data['muscle']
         api_url = 'https://api.api-ninjas.com/v1/exercises?muscle={}'.format(muscle)
         response = requests.get(api_url, headers={'X-Api-Key': 'bjYevCAS2Tzqek1eiKWLEg==p7fCMIQqd5OW593q'})
-        exercises = ''
+        exercises = ""
         if response.status_code == requests.codes.ok:
             for i in response.text:
                 exercises += i['name'] + ", "
