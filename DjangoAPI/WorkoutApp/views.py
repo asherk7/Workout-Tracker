@@ -1,3 +1,4 @@
+import requests
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
@@ -7,6 +8,10 @@ from WorkoutApp.models import Workouts, PersonalRecords, Exercise
 from WorkoutApp.serializers import WorkoutsSerializer, PersonalRecordsSerializer, ExerciseSerializer   
 
 # Create your views here.
+
+@csrf_exempt
+def main(request):
+    return render(request, 'main.html')
 
 @csrf_exempt
 def workoutsAPI(request, id=0):
@@ -68,14 +73,18 @@ def personalrecordsAPI(request, id=0):
 
 @csrf_exempt
 def musclesAPI(request):
-    pass
-    """
-    import requests
-    muscle = 'biceps'
-    api_url = 'https://api.api-ninjas.com/v1/exercises?muscle={}'.format(muscle)
-    response = requests.get(api_url, headers={'X-Api-Key': 'YOUR_API_KEY'})
-    if response.status_code == requests.codes.ok:
-        print(response.text)
+    if request.method == "POST":
+        muscle_data = JSONParser.parse(request)
+        muscle = muscle_data['muscle']
+        api_url = 'https://api.api-ninjas.com/v1/exercises?muscle={}'.format(muscle)
+        response = requests.get(api_url, headers={'X-Api-Key': 'bjYevCAS2Tzqek1eiKWLEg==p7fCMIQqd5OW593q'})
+        exercises = []
+        if response.status_code == requests.codes.ok:
+            for i in response.text:
+                exercises.append(i['name'])
+            return render(request, 'muscles.html', {'exercises': exercises})
+        else:
+            return JsonResponse("Error retrieving exercises", safe=False)
+
     else:
-        print("Error:", response.status_code, response.text)
-    """
+        return render(request, 'muscles.html')

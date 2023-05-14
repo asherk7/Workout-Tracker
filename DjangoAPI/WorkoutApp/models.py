@@ -4,7 +4,7 @@ from django.db import models
 
 class Exercise(models.Model):
     ExerciseID = models.AutoField(primary_key=True)
-    Name = models.CharField(max_length=50, primary_key=True)
+    Name = models.CharField(max_length=50)
     Sets = models.IntegerField()
     Reps = models.IntegerField()
     Weight = models.IntegerField()

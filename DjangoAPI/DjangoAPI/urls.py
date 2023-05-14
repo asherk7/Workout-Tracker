@@ -21,7 +21,7 @@ from WorkoutApp import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    #path("", views.main, name='main'),
+    path("", views.main, name='main'),
     path("workouts/", include("WorkoutApp.urls")),
     path("personalrecords/", include("WorkoutApp.urls")),
     path("muscles/", include("WorkoutApp.urls")),
