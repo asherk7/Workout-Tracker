@@ -9,4 +9,6 @@ urlpatterns = [
     re_path(r'^personalrecords/([0-9]+)$', views.personalrecordsAPI),
 
     re_path(r'^muscles/$', views.musclesAPI),
+
+    re_path(r'^splits/$', views.splitsAPI),
 ]

@@ -4,14 +4,10 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from django.http.response import JsonResponse
 
-from WorkoutApp.models import Workouts, PersonalRecords, Exercise
-from WorkoutApp.serializers import WorkoutsSerializer, PersonalRecordsSerializer, ExerciseSerializer   
+from WorkoutApp.models import Workouts, PersonalRecords, Exercise, Muscles
+from WorkoutApp.serializers import WorkoutsSerializer, PersonalRecordsSerializer, ExerciseSerializer, MusclesSerializer   
 
 # Create your views here.
-
-@csrf_exempt
-def main(request):
-    return render(request, 'main.html')
 
 @csrf_exempt
 def workoutsAPI(request, id=0):
@@ -72,19 +68,53 @@ def personalrecordsAPI(request, id=0):
         return JsonResponse('Deleted the Record Successfully', safe=False)
 
 @csrf_exempt
-def musclesAPI(request):
-    if request.method == "POST":
+def musclesAPI(request,id=0):
+    if request.method == "GET":
+        muscles = Muscles.objects.all()
+        muscles_serializer = MusclesSerializer(muscles, many=True)
+        return JsonResponse(muscles_serializer.data, safe=False)
+
+    elif request.method == "POST":
         muscle_data = JSONParser.parse(request)
         muscle = muscle_data['muscle']
         api_url = 'https://api.api-ninjas.com/v1/exercises?muscle={}'.format(muscle)
         response = requests.get(api_url, headers={'X-Api-Key': 'bjYevCAS2Tzqek1eiKWLEg==p7fCMIQqd5OW593q'})
-        exercises = []
+        exercises = ''
         if response.status_code == requests.codes.ok:
             for i in response.text:
-                exercises.append(i['name'])
-            return render(request, 'muscles.html', {'exercises': exercises})
+                exercises += i['name'] + ", "
+            muscle_model = Muscles(MuscleID=0, Name=muscle, Exercises=exercises)
+            muscle_serializer = MusclesSerializer(data=muscle_model)
+            if muscle_serializer.is_valid():
+                muscle_serializer.save()
+                return JsonResponse("Muscle Added Successfully", safe=False)
+            return JsonResponse("Failed to Add Muscle", safe=False)
         else:
-            return JsonResponse("Error retrieving exercises", safe=False)
+            return JsonResponse("Failed to Retrieve Exercises", safe=False)
 
+    elif request.method=="PUT":
+        prev_muscle = Muscles.objects.get(MuscleID=id)
+        prev_muscle.delete()
+        muscle_data = JSONParser.parse(request)
+        muscle = muscle_data['muscle']
+        api_url = 'https://api.api-ninjas.com/v1/exercises?muscle={}'.format(muscle)
+        response = requests.get(api_url, headers={'X-Api-Key': 'bjYevCAS2Tzqek1eiKWLEg==p7fCMIQqd5OW593q'})
+        exercises = ''
+        if response.status_code == requests.codes.ok:
+            for i in response.text:
+                exercises += i['name'] + ", "
+            muscle_model = Muscles(MuscleID=0, Name=muscle, Exercises=exercises)
+            muscle_serializer = MusclesSerializer(data=muscle_model)
+            if muscle_serializer.is_valid():
+                muscle_serializer.save()
+                return JsonResponse("Muscle Added Successfully", safe=False)
+            return JsonResponse("Failed to Add Muscle", safe=False)
+        else:
+            return JsonResponse("Failed to Retrieve Exericses", safe=False)
+    
+@csrf_exempt
+def splitsAPI(request):
+    if request.method=="GET":
+        return JsonResponse("Splits", safe=False)
     else:
-        return render(request, 'muscles.html')
+        return JsonResponse("Not Splits", safe=False)

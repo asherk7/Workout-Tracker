@@ -29,6 +29,11 @@ class PersonalRecords(models.Model):
     Date = models.DateField()
     BodyWeight = models.IntegerField()
 
+class Muscles(models.Model):
+    MuscleID = models.AutoField(primary_key=True)
+    Name = models.CharField(max_length=50)
+    Exercises = models.CharField(max_length=200)
+
 #when changes are made, run the following commands:
 #python manage.py makemigrations WorkoutApp
 #python manage.py migrate WorkoutApp

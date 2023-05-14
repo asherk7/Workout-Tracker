@@ -51,8 +51,10 @@ Technologies used: ![DjangoREST](https://img.shields.io/badge/DJANGO-REST-ff1709
     ```
 3. Run the server
    ```sh
-   python ./manage.py runserver
+   cd Workout-Tracker/Angular
+
+   ng open --serve
    ```
-4. Open the server
+4. Open the server on the localhost
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
