@@ -10,6 +10,10 @@ import { SplitsComponent } from './splits/splits.component';
 import { ShowDeleteComponent } from './workouts/show-delete/show-delete.component';
 import { AddEditComponent } from './workouts/add-edit/add-edit.component';
 import { AddComponent } from './muscles/add/add.component';
+import { CrudService } from './crud.service';
+
+import { HttpClientModule } from '@angular/common/http'; //used to make http requests
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; //used to make forms
 
 //created components using ng generate component <component name>
 
@@ -28,7 +32,7 @@ import { AddComponent } from './muscles/add/add.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [CrudService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
