@@ -112,6 +112,11 @@ def musclesAPI(request):
         else:
             return JsonResponse("Failed to Retrieve Exericses", safe=False)
     
+    elif request.method=="DELETE":
+        muscle = Muscles.objects.get(MuscleID=0)
+        muscle.delete()
+        return JsonResponse('Deleted the Muscle Successfully', safe=False)
+
 @csrf_exempt
 def splitsAPI(request):
     if request.method=="GET":
