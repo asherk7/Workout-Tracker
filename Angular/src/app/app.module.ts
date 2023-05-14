@@ -13,7 +13,8 @@ import { AddComponent } from './muscles/add/add.component';
 import { CrudService } from './crud.service';
 
 import { HttpClientModule } from '@angular/common/http'; //used to make http requests
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'; //used to make forms
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ShowComponent } from './muscles/show/show.component'; //used to make forms
 
 //created components using ng generate component <component name>
 
@@ -26,7 +27,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'; //used to mak
     SplitsComponent,
     ShowDeleteComponent,
     AddEditComponent,
-    AddComponent
+    AddComponent,
+    ShowComponent
   ],
   imports: [
     BrowserModule,

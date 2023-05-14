@@ -68,7 +68,7 @@ def personalrecordsAPI(request, id=0):
         return JsonResponse('Deleted the Record Successfully', safe=False)
 
 @csrf_exempt
-def musclesAPI(request,id=0):
+def musclesAPI(request):
     if request.method == "GET":
         muscles = Muscles.objects.all()
         muscles_serializer = MusclesSerializer(muscles, many=True)
@@ -93,7 +93,7 @@ def musclesAPI(request,id=0):
             return JsonResponse("Failed to Retrieve Exercises", safe=False)
 
     elif request.method=="PUT":
-        prev_muscle = Muscles.objects.get(MuscleID=id)
+        prev_muscle = Muscles.objects.get(MuscleID=0)
         prev_muscle.delete()
         muscle_data = JSONParser.parse(request)
         muscle = muscle_data['muscle']
