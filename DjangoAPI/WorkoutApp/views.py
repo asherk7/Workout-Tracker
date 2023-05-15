@@ -41,7 +41,7 @@ def workoutsAPI(request, id=0):
 @csrf_exempt
 def personalrecordsAPI(request, id=0):
     if request.method=='GET': 
-        personalrecords = PersonalRecords.objects.all()
+        personalrecords = PersonalRecords.objects.all() 
         personalrecords_serializer = PersonalRecordsSerializer(personalrecords, many=True)
         return JsonResponse(personalrecords_serializer.data, safe=False)
     
@@ -76,46 +76,38 @@ def musclesAPI(request):
 
     elif request.method == "POST":
         muscle_data = JSONParser().parse(request)
-        muscle = muscle_data['muscle']
+        muscle = muscle_data['Muscle']
         api_url = 'https://api.api-ninjas.com/v1/exercises?muscle={}'.format(muscle)
         response = requests.get(api_url, headers={'X-Api-Key': 'bjYevCAS2Tzqek1eiKWLEg==p7fCMIQqd5OW593q'})
-        exercises = ""
         if response.status_code == requests.codes.ok:
             for i in response.text:
-                exercises += i['name'] + ", "
-            muscle_model = Muscles(MuscleID=0, Name=muscle, Exercises=exercises)
-            muscle_serializer = MusclesSerializer(data=muscle_model)
-            if muscle_serializer.is_valid():
-                muscle_serializer.save()
-                return JsonResponse("Muscle Added Successfully", safe=False)
-            return JsonResponse("Failed to Add Muscle", safe=False)
+                muscle_serializer = MusclesSerializer(data=i)
+                if muscle_serializer.is_valid():
+                    muscle_serializer.save()
+            return JsonResponse("Exercises Added Successfully", safe=False)
         else:
             return JsonResponse("Failed to Retrieve Exercises", safe=False)
-
+        
     elif request.method=="PUT":
-        prev_muscle = Muscles.objects.get(MuscleID=0)
-        prev_muscle.delete()
+        muscles = Muscles.objects.all()
+        muscles.delete()
         muscle_data = JSONParser().parse(request)
-        muscle = muscle_data['muscle']
+        muscle = muscle_data['Muscle']
         api_url = 'https://api.api-ninjas.com/v1/exercises?muscle={}'.format(muscle)
         response = requests.get(api_url, headers={'X-Api-Key': 'bjYevCAS2Tzqek1eiKWLEg==p7fCMIQqd5OW593q'})
-        exercises = ""
         if response.status_code == requests.codes.ok:
             for i in response.text:
-                exercises += i['name'] + ", "
-            muscle_model = Muscles(MuscleID=0, Name=muscle, Exercises=exercises)
-            muscle_serializer = MusclesSerializer(data=muscle_model)
-            if muscle_serializer.is_valid():
-                muscle_serializer.save()
-                return JsonResponse("Muscle Added Successfully", safe=False)
-            return JsonResponse("Failed to Add Muscle", safe=False)
+                muscle_serializer = MusclesSerializer(data=i)
+                if muscle_serializer.is_valid():
+                    muscle_serializer.save()
+            return JsonResponse("Exercises Added Successfully", safe=False)
         else:
-            return JsonResponse("Failed to Retrieve Exericses", safe=False)
+            return JsonResponse("Failed to Retrieve Exercises", safe=False)
     
     elif request.method=="DELETE":
-        muscle = Muscles.objects.get(MuscleID=0)
-        muscle.delete()
-        return JsonResponse('Deleted the Muscle Successfully', safe=False)
+        muscles = Muscles.objects.all()
+        muscles.delete()
+        return JsonResponse('Deleted the Exercises Successfully', safe=False)
 
 @csrf_exempt
 def splitsAPI(request):

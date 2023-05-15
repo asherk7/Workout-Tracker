@@ -7,6 +7,7 @@ Technologies used: ![DjangoREST](https://img.shields.io/badge/DJANGO-REST-ff1709
 * Used gunicorn for increasing the processing speed and running the pipeline through the gunicorn server
 * Utilized gunicorn and nginx for the jenkins pipeline for migrations, file collection, and reverse proxy
 * Used SQLite for the database  
+* Used an API from https://api-ninjas.com/api/exercises
 
 ### Checking the jenkins CI/CD pipeline
 
