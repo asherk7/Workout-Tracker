@@ -1,3 +1,24 @@
-<h2>Test</h2>
+<div class="container">
 
-<router-outlet></router-outlet>
+    <h3 class="d-flex justify-content-center">Workout Tracker</h3>
+
+    <nav class="navbar navbar-expand-sm bg-light navbar-dark">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <button routerLink="/workouts" class="n-1 btn btn-light btn-outline-primary">Workouts</button>
+            </li>
+            <li class="nav-item">
+                <button routerLink="/personalrecords" class="n-1 btn btn-light btn-outline-primary">Personal Records</button>
+            </li>
+            <li class="nav-item">
+                <button routerLink="/muscles" class="n-1 btn btn-light btn-outline-primary">Muscle Specific Exercises</button>
+            </li>
+            <li>
+                <button routerLink="/splits" class="n-1 btn btn-light btn-outline-primary">Workout Splits</button>
+            </li>
+        </ul>
+    </nav>
+
+    <router-outlet></router-outlet>
+
+</div>

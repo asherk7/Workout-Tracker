@@ -3,18 +3,23 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { WorkoutsComponent } from './workouts/workouts.component';
 import { PersonalrecordsComponent } from './personalrecords/personalrecords.component';
 import { MusclesComponent } from './muscles/muscles.component';
 import { SplitsComponent } from './splits/splits.component';
-import { ShowDeleteComponent } from './workouts/show-delete/show-delete.component';
-import { AddEditComponent } from './workouts/add-edit/add-edit.component';
-import { AddComponent } from './muscles/add/add.component';
-import { CrudService } from './crud.service';
 
+import { CrudService } from './crud.service';
 import { HttpClientModule } from '@angular/common/http'; //used to make http requests
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ShowComponent } from './muscles/show/show.component'; //used to make forms
+
+import { MShowDeleteComponent } from './muscles/m-show-delete/m-show-delete.component';
+import { MAddEditComponent } from './muscles/m-add-edit/m-add-edit.component';
+import { WShowDeleteComponent } from './workouts/w-show-delete/w-show-delete.component';
+import { WAddEditComponent } from './workouts/w-add-edit/w-add-edit.component';
+import { PsAddEditComponent } from './personalrecords/ps-add-edit/ps-add-edit.component';
+import { PsShowDeleteComponent } from './personalrecords/ps-show-delete/ps-show-delete.component';
+import { SShowComponent } from './splits/s-show/s-show.component'; //used to make forms
 
 //created components using ng generate component <component name>
 
@@ -25,10 +30,13 @@ import { ShowComponent } from './muscles/show/show.component'; //used to make fo
     PersonalrecordsComponent,
     MusclesComponent,
     SplitsComponent,
-    ShowDeleteComponent,
-    AddEditComponent,
-    AddComponent,
-    ShowComponent
+    MShowDeleteComponent,
+    MAddEditComponent,
+    WShowDeleteComponent,
+    WAddEditComponent,
+    PsAddEditComponent,
+    PsShowDeleteComponent,
+    SShowComponent
   ],
   imports: [
     BrowserModule,

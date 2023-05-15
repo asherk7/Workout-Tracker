@@ -53,14 +53,8 @@ Technologies used: ![DjangoREST](https://img.shields.io/badge/DJANGO-REST-ff1709
    ```sh
    #In the Workout-Tracker directory
 
-   cd DjangoAPI
-
-   python manage.py runserver
-
-   cd .. 
-
    cd Angular
 
-   ng open --serve 
+   ng serve 
    ```
 4. Open the server on the localhost

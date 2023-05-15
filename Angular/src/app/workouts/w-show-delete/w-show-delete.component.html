@@ -1,0 +1,56 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary float-right m-2" data-bs-toggle="modal" data-bs-target="#exampleModal"
+(click)="addClick()" data-backdrop="static" data-keyboard="false">
+    Add Workout
+</button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{ModalTitle}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+          (click)="closeClick()"></button>
+        </div>
+        <div class="modal-body">
+          <app-w-add-edit [workout]="workout" *ngIf="ActivateWAddEditComponent">
+          </app-w-add-edit>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>WorkoutID</th>
+            <th>Muscles/Split</th>
+            <th>Date</th>
+            <th>Duration</th>
+            <th>Exercises</th>
+            <th>Rating</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let workoutData of WorkoutList">
+            <td>{{ workoutData.WorkoutID }}</td>
+            <td>{{ workoutData.Split }}</td>
+            <td>{{ workoutData.Date }}</td>
+            <td>{{ workoutData.Duration }}</td>
+            <td>{{ workoutData.Exercises }}</td>
+            <td>{{ workoutData.Rating }}</td>
+            <td>
+                <button type="button" class="btn btn-light mr-1" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                (click)="editClick(workoutData)" data-backdrop="static" data-keyboard="false">
+                    Edit
+                </button>
+                <button type="button" class="btn btn-light mr-1">
+                    Delete
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

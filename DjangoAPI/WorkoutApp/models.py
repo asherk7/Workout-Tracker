@@ -2,32 +2,22 @@ from django.db import models
 
 # Create your models here.
 
-class Exercise(models.Model):
-    ExerciseID = models.AutoField(primary_key=True)
-    Name = models.CharField(max_length=50)
-    Sets = models.IntegerField()
-    Reps = models.IntegerField()
-    Weight = models.IntegerField()
-
-    def __repr__(self):
-        return self.Name
-    #related name is used to access all the exercise models associated with the workout model
-
 class Workouts(models.Model):
     WorkoutID = models.AutoField(primary_key=True)
     Split = models.CharField(max_length=50)
-    Date = models.DateField()
-    Duration = models.IntegerField()
-    Exercises = models.ManyToManyField(Exercise)
+    Date = models.CharField(max_length=50)
+    Duration = models.CharField(max_length=50)
+    Exercises = models.CharField(max_length=300)
+    Rating = models.CharField(max_length=50)
     #one workout model contains many exercise models
 
 class PersonalRecords(models.Model):
     RecordID = models.AutoField(primary_key=True)
     Exercise = models.CharField(max_length=50)
-    Weight = models.IntegerField()
-    Reps = models.IntegerField()
-    Date = models.DateField()
-    BodyWeight = models.IntegerField()
+    Weight = models.CharField(max_length=50)
+    Reps = models.CharField(max_length=50)
+    Date = models.CharField(max_length=50)
+    BodyWeight = models.CharField(max_length=50)
 
 class Muscles(models.Model):
     MuscleID = models.AutoField(primary_key=True)

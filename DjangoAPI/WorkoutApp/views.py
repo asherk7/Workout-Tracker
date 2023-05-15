@@ -4,8 +4,8 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from django.http.response import JsonResponse
 
-from WorkoutApp.models import Workouts, PersonalRecords, Exercise, Muscles
-from WorkoutApp.serializers import WorkoutsSerializer, PersonalRecordsSerializer, ExerciseSerializer, MusclesSerializer   
+from WorkoutApp.models import Workouts, PersonalRecords, Muscles
+from WorkoutApp.serializers import WorkoutsSerializer, PersonalRecordsSerializer, MusclesSerializer   
 
 # Create your views here.
 

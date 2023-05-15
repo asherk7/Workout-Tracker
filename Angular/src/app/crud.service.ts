@@ -2,7 +2,7 @@
 //this is where we will make our http requests
 
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpBackend } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs'; //handles asynchronous operations
 
 @Injectable({
@@ -11,15 +11,9 @@ import { Observable } from 'rxjs'; //handles asynchronous operations
 
 export class CrudService {
 
-private httpWithoutInterceptor: HttpClient;
 readonly APIUrl = "http://127.0.0.1:8000/";
 
-  constructor(
-    private http:HttpClient,
-    private httpBackend:HttpBackend
-    ) {
-      this.httpWithoutInterceptor = new HttpClient(httpBackend);
-    } //this allows us to send http requests without the interceptor
+  constructor(private http:HttpClient) {  }
 
   getWorkoutList():Observable<any[]>{
     return this.http.get<any[]>(this.APIUrl + 'workouts/');
@@ -62,21 +56,21 @@ readonly APIUrl = "http://127.0.0.1:8000/";
   }
 
   addMuscleGroup(val:any){
-    return this.httpWithoutInterceptor.post(this.APIUrl + 'muscles/',val);
+    return this.http.post(this.APIUrl + 'muscles/',val);
   }
 
   editMuscleGroup(val:any){
-    return this.httpWithoutInterceptor.put(this.APIUrl + 'muscles/',val);
+    return this.http.put(this.APIUrl + 'muscles/',val);
   }
 
   deleteMuscleGroup(val:any){
-    return this.httpWithoutInterceptor.delete(this.APIUrl + 'muscles/'+val);
+    return this.http.delete(this.APIUrl + 'muscles/'+val);
   } 
 
 
 
   getSplits():Observable<any[]>{
-    return this.httpWithoutInterceptor.get<any[]>(this.APIUrl + 'splits/');
+    return this.http.get<any[]>(this.APIUrl + 'splits/');
   }
 
 }
