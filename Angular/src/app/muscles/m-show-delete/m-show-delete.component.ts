@@ -10,7 +10,7 @@ export class MShowDeleteComponent implements OnInit{
 
   constructor(private service:CrudService) { }
 
-  MuscleGroup:any=[];
+  MuscleGroupList:any=[];
   ModalTitle:string="";
   ActivateMAddEditComponent:boolean=false;
   muscleGroup:any;
@@ -21,7 +21,7 @@ export class MShowDeleteComponent implements OnInit{
 
   refreshMuscleGroupList(){
     this.service.getMuscleGroup().subscribe(data=>{ 
-      this.MuscleGroup=data;
+      this.MuscleGroupList=data;
     });
   }
 }
