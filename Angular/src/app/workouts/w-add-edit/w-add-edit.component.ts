@@ -28,7 +28,8 @@ export class WAddEditComponent implements OnInit {
   }
 
   addWorkout(){
-    var val = {WorkoutID:this.WorkoutID,
+    var val = {
+      WorkoutID:this.WorkoutID,
       Split:this.Split,
       Date:this.Date,
       Duration:this.Duration,
@@ -41,7 +42,8 @@ export class WAddEditComponent implements OnInit {
   }
 
   updateWorkout(){
-    var val = {WorkoutID:this.WorkoutID,
+    var val = {
+      WorkoutID:this.WorkoutID,
       Split:this.Split,
       Date:this.Date,
       Duration:this.Duration,

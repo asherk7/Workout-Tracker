@@ -34,13 +34,22 @@ export class WShowDeleteComponent implements OnInit {
 
   closeClick(){
     this.ActivateWAddEditComponent=false;
-    this.refreshWorkoutList
+    this.refreshWorkoutList();
   }
 
   editClick(item:any){
     this.workout=item;
     this.ModalTitle="Edit Workout";
     this.ActivateWAddEditComponent=true;
+  }
+
+  deleteClick(item:any){
+    if(confirm('Are you sure you want to delete this workout?')){
+      this.service.deleteWorkout(item.WorkoutID).subscribe(data=>{
+        alert(data.toString());
+        this.refreshWorkoutList();
+      })
+    };
   }
 
   refreshWorkoutList(){

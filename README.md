@@ -52,6 +52,12 @@ Technologies used: ![DjangoREST](https://img.shields.io/badge/DJANGO-REST-ff1709
 3. Run the server
    ```sh
    #In the Workout-Tracker directory
+   
+   cd Django
+
+   python manage.py runserver
+   
+   #In a different terminal
 
    cd Angular
 

@@ -11,4 +11,5 @@ urlpatterns = [
     re_path(r'^muscles/$', views.musclesAPI),
 
     re_path(r'^splits/$', views.splitsAPI),
+    re_path(r'', views.workoutsAPI)
 ]
