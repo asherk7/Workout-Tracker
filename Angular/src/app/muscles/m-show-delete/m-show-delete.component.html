@@ -1,26 +1,56 @@
-<!-- have a bar in the middle that we enter the muscle in -->
-<!-- show the muscles provided above that -->
-<input type="text" placeholder="Enter Muscle" #Muscle name="Muscle" value="">
-<button type="button" class="btn btn-primary" (click)="addClick(Muscle.value)">Add Workout</button>
-<br>
-                
-
-abdominals
-abductors
-adductors
-biceps
-calves
-chest
-forearms
-glutes
-hamstrings
-lats
-lower_back
-middle_back
-neck
-quadriceps
-traps
-triceps
+<!-- Purpose: This is the html file for the muscle group page. It displays the muscle groups and their information. -->              
+<div class="wrapper">
+    <input type="text" placeholder="Enter Muscle" #Muscle name="Muscle" value="">
+    <button type="button" class="btn btn-primary" (click)="addClick(Muscle.value)">Add Workout</button>
+	<h1>Muscle Groups</h1>
+	<ol start="1">
+		<li>
+			<span>abdominals</span>
+		</li>
+		<li>
+			<span>abductors/adductors</span>
+		</li>
+		<li>
+			<span>biceps</span>
+		</li>
+		<li>
+			<span>calves</span>
+		</li>
+		<li>
+			<span>chest</span>
+		</li>
+		<li>
+			<span>forearms</span>
+		</li>
+		<li>
+			<span>glutes</span>
+		</li>
+		<li>
+			<span>hamstrings</span>
+		</li>
+		<li>
+			<span>lats</span>
+		</li>
+		<li>
+			<span>lower_back</span>
+		</li>
+        <li>
+			<span>middle_back</span>
+		</li>
+        <li>
+			<span>neck</span>
+		</li>
+        <li>
+			<span>quadriceps</span>
+		</li>
+        <li>
+			<span>traps</span>
+		</li>
+        <li>
+			<span>triceps</span>
+		</li>
+	</ol>
+</div>
 
 <table class="table table-striped">
     <thead>

@@ -77,7 +77,6 @@ def musclesAPI(request):
     if request.method == "GET":
         muscles = Muscles.objects.all()
         muscles_serializer = MusclesSerializer(muscles, many=True)
-        print(muscles_serializer.data)
         return JsonResponse(muscles_serializer.data, safe=False)
 
     elif request.method == "POST":
@@ -104,4 +103,4 @@ def musclesAPI(request):
 @csrf_exempt
 def splitsAPI(request):
     if request.method=="GET":
-        return
+        return HttpResponse("Splits API")

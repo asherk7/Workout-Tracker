@@ -1,0 +1,42 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: clamp(1rem, 2vw, 3rem);
+	font-family: "Open Sans", sans-serif;
+	font-size: 1.1rem;
+}
+
+h1 {
+    color: darkslateblue;
+}
+
+input {
+    padding: 0.5rem;
+    border: 0.2rem solid darkslateblue;
+    border-radius: 0.5rem;
+}
+
+button{
+    padding: 0.5rem;
+    border: 0.2rem solid darkslateblue;
+    border-radius: 0.5rem;
+    background-color: darkslateblue;
+    color: white;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+ol {
+	padding: 1.5rem 1.5rem 1.5rem 4em;
+	border: 0.3rem solid darkslateblue;
+	columns: 10rem;
+	column-gap: 7rem;
+	column-rule: 4px dotted darkslateblue;
+	border-radius: 0.5rem;
+}
