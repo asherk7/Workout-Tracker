@@ -22,7 +22,7 @@
 </div>
 
 <!-- button is only visible if WorkoutID is 0, and it's only 0 if it's added -->
-<button (click)="addWorkout()" *ngIf="workout.WorkoutID==0" class="btn btn-primary">
+<button (click)="addWorkout()" *ngIf="workout.WorkoutID==0" class="btn btn-primary" data-bs-dismiss="modal">
     Add Workout</button>
-<button (click)="updateWorkout()" *ngIf="workout.WorkoutID!=0" class="btn btn-primary">
+<button (click)="updateWorkout()" *ngIf="workout.WorkoutID!=0" class="btn btn-primary" data-bs-dismiss="modal">
     Update Workout</button>

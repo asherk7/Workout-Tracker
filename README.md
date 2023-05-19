@@ -4,10 +4,9 @@ Technologies used: ![DjangoREST](https://img.shields.io/badge/DJANGO-REST-ff1709
 * Created the website by connecting the Django backend with the Angular frontend  
 * Created a CI/CD pipeline using jenkins on a LINUX environment  
 * Utilized Nginx to increase the perfomance on the webserver  
-* Used gunicorn for increasing the processing speed and running the pipeline through the gunicorn server
-* Utilized gunicorn and nginx for the jenkins pipeline for migrations, file collection, and reverse proxy
-* Used SQLite for the database  
-* Used an API from https://api-ninjas.com/api/exercises
+* Used gunicorn for increasing the processing speed and running the pipeline through the gunicorn server  
+* Utilized gunicorn and nginx for the jenkins pipeline for migrations, file collection, and reverse proxy  
+* Used an API from https://api-ninjas.com/api/exercises  
 
 ### Checking the jenkins CI/CD pipeline
 
@@ -54,7 +53,7 @@ Technologies used: ![DjangoREST](https://img.shields.io/badge/DJANGO-REST-ff1709
    ```sh
    #In the Workout-Tracker directory
    
-   cd Django
+   cd DjangoAPI
 
    python manage.py runserver
    

@@ -21,8 +21,8 @@ def workoutsAPI(request, id=0):
         workout_serializer = WorkoutsSerializer(data=workout_data)
         if workout_serializer.is_valid(): #checks if it contains the right data/fields
             workout_serializer.save() #creates new instance of the model and saves it to the database
-            return JsonResponse("Workout Added Successfully", safe=False)
-        return JsonResponse("Failed to Add Workout", safe=False)
+        else:
+            return JsonResponse("Failed to Add Workout", safe=False)
     
     elif request.method=='PUT':
         workout_data = JSONParser().parse(request)
@@ -30,13 +30,13 @@ def workoutsAPI(request, id=0):
         workout_serializer = WorkoutsSerializer(workout, data=workout_data) #maps that instance to the new data
         if workout_serializer.is_valid():
             workout_serializer.save()
-            return JsonResponse("Updated the Workout Successfully", safe=False)
-        return JsonResponse("Failed to Update the Workout")
+        else:
+            return JsonResponse("Failed to Update the Workout")
     
     elif request.method=='DELETE':
         workout = Workouts.objects.get(WorkoutID=id)
         workout.delete()
-        return JsonResponse('Deleted the Workout Successfully', safe=False)
+        return JsonResponse("Deleted Successfully", safe=False)
 
 @csrf_exempt
 def personalrecordsAPI(request, id=0):
@@ -50,8 +50,8 @@ def personalrecordsAPI(request, id=0):
         record_serializer = PersonalRecordsSerializer(data=record_data)
         if record_serializer.is_valid():
             record_serializer.save()
-            return JsonResponse("Record Added Successfully", safe=False)
-        return JsonResponse("Failed to add Personal Record", safe=False)
+        else:
+            return JsonResponse("Failed to add Personal Record", safe=False)
     
     elif request.method=="PUT":
         record_data=JSONParser().parse(request)
@@ -59,13 +59,13 @@ def personalrecordsAPI(request, id=0):
         record_serializer = PersonalRecordsSerializer(record, data=record_data)
         if record_serializer.is_valid():
             record_serializer.save()
-            return JsonResponse("Updated the Personal Record Successfully", safe=False)
-        return JsonResponse("Failed to Update the Record", safe=False)
+        else:
+            return JsonResponse("Failed to Update the Record", safe=False)
     
     elif request.method=="DELETE":
         record=PersonalRecords.objects.get(RecordID=id)
         record.delete()
-        return JsonResponse('Deleted the Record Successfully', safe=False)
+        return JsonResponse("Deleted Successfully", safe=False)
 
 @csrf_exempt
 def musclesAPI(request):
@@ -75,20 +75,6 @@ def musclesAPI(request):
         return JsonResponse(muscles_serializer.data, safe=False)
 
     elif request.method == "POST":
-        muscle_data = JSONParser().parse(request)
-        muscle = muscle_data['Muscle']
-        api_url = 'https://api.api-ninjas.com/v1/exercises?muscle={}'.format(muscle)
-        response = requests.get(api_url, headers={'X-Api-Key': 'bjYevCAS2Tzqek1eiKWLEg==p7fCMIQqd5OW593q'})
-        if response.status_code == requests.codes.ok:
-            for i in response.text:
-                muscle_serializer = MusclesSerializer(data=i)
-                if muscle_serializer.is_valid():
-                    muscle_serializer.save()
-            return JsonResponse("Exercises Added Successfully", safe=False)
-        else:
-            return JsonResponse("Failed to Retrieve Exercises", safe=False)
-        
-    elif request.method=="PUT":
         muscles = Muscles.objects.all()
         muscles.delete()
         muscle_data = JSONParser().parse(request)
@@ -100,18 +86,15 @@ def musclesAPI(request):
                 muscle_serializer = MusclesSerializer(data=i)
                 if muscle_serializer.is_valid():
                     muscle_serializer.save()
-            return JsonResponse("Exercises Added Successfully", safe=False)
         else:
             return JsonResponse("Failed to Retrieve Exercises", safe=False)
     
     elif request.method=="DELETE":
         muscles = Muscles.objects.all()
         muscles.delete()
-        return JsonResponse('Deleted the Exercises Successfully', safe=False)
+        return JsonResponse("Deleted Successfully", safe=False)
 
 @csrf_exempt
 def splitsAPI(request):
     if request.method=="GET":
-        return JsonResponse("Splits", safe=False)
-    else:
-        return JsonResponse("Not Splits", safe=False)
+        return

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CrudService } from 'src/app/crud.service'
+import { PsShowDeleteComponent } from 'src/app/personalrecords/ps-show-delete/ps-show-delete.component'
 
 @Component({
   selector: 'app-ps-add-edit',
@@ -8,7 +9,7 @@ import { CrudService } from 'src/app/crud.service'
 })
 export class PsAddEditComponent implements OnInit{
 
-  constructor(private service:CrudService) {}
+  constructor(private service:CrudService, private close:PsShowDeleteComponent) {}
 
   @Input() personalrecord:any;
   RecordID:string='';
@@ -39,6 +40,7 @@ export class PsAddEditComponent implements OnInit{
     this.service.addPR(val).subscribe(res=>{
       alert(res.toString());
     });
+    this.close.closeClick();
   }
 
   updatePR(){
@@ -53,6 +55,7 @@ export class PsAddEditComponent implements OnInit{
     this.service.updatePR(val).subscribe(res=>{
       alert(res.toString());
     });
+    this.close.closeClick();
   }
 
 }

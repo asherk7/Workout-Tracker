@@ -22,7 +22,7 @@
 </div>
 
 <!-- button is only visible if RecordID is 0, and it's only 0 if it's a new workout since edited workouts have a recordID assigned -->
-<button (click)="addPR()" *ngIf="personalrecord.RecordID==0" class="btn btn-primary">
+<button (click)="addPR()" *ngIf="personalrecord.RecordID==0" class="btn btn-primary" data-bs-dismiss="modal">
     Add Personal Record</button>
-<button (click)="updatePR()" *ngIf="personalrecord.RecordID!=0" class="btn btn-primary">
+<button (click)="updatePR()" *ngIf="personalrecord.RecordID!=0" class="btn btn-primary" data-bs-dismiss="modal">
     Update Personal Record</button>

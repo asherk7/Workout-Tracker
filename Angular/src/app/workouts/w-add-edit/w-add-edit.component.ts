@@ -1,5 +1,6 @@
 import { Component, OnInit, Input} from '@angular/core';
 import { CrudService } from 'src/app/crud.service';
+import { WShowDeleteComponent } from 'src/app/workouts/w-show-delete/w-show-delete.component'
 
 @Component({
   selector: 'app-w-add-edit',
@@ -8,7 +9,7 @@ import { CrudService } from 'src/app/crud.service';
 })
 export class WAddEditComponent implements OnInit {
 
-  constructor(private service:CrudService) { }
+  constructor(private service:CrudService, private close: WShowDeleteComponent) { }
 
   @Input() workout:any;
   WorkoutID:string="";
@@ -39,6 +40,7 @@ export class WAddEditComponent implements OnInit {
     this.service.addWorkout(val).subscribe(res=>{
       alert(res.toString());
     }); //subscribe to the observable returned by addWorkout
+    this.close.closeClick();
   }
 
   updateWorkout(){
@@ -53,6 +55,6 @@ export class WAddEditComponent implements OnInit {
     this.service.updateWorkout(val).subscribe(res=>{
       alert(res.toString());
     });
+    this.close.closeClick();
   }
-
 }

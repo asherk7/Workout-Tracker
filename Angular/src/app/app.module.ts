@@ -14,7 +14,6 @@ import { HttpClientModule } from '@angular/common/http'; //used to make http req
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MShowDeleteComponent } from './muscles/m-show-delete/m-show-delete.component';
-import { MAddEditComponent } from './muscles/m-add-edit/m-add-edit.component';
 import { WShowDeleteComponent } from './workouts/w-show-delete/w-show-delete.component';
 import { WAddEditComponent } from './workouts/w-add-edit/w-add-edit.component';
 import { PsAddEditComponent } from './personalrecords/ps-add-edit/ps-add-edit.component';
@@ -31,7 +30,6 @@ import { SShowComponent } from './splits/s-show/s-show.component'; //used to mak
     MusclesComponent,
     SplitsComponent,
     MShowDeleteComponent,
-    MAddEditComponent,
     WShowDeleteComponent,
     WAddEditComponent,
     PsAddEditComponent,
