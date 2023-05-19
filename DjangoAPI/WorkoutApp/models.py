@@ -20,13 +20,12 @@ class PersonalRecords(models.Model):
     BodyWeight = models.CharField(max_length=50)
 
 class Muscles(models.Model):
-    MuscleID = models.AutoField(primary_key=True)
-    Name = models.CharField(max_length=50)
-    Type = models.CharField(max_length=50)
-    Muscle = models.CharField(max_length=50)
-    Equipment = models.CharField(max_length=50)
-    Difficulty = models.CharField(max_length=50)
-    Instructions = models.CharField(max_length=300)
+    name = models.CharField(max_length=50)
+    type = models.CharField(max_length=50)
+    muscle = models.CharField(max_length=50)
+    equipment = models.CharField(max_length=50)
+    difficulty = models.CharField(max_length=50)
+    instructions = models.CharField(max_length=2000)
 
 #when changes are made, run the following commands:
 #python manage.py makemigrations WorkoutApp

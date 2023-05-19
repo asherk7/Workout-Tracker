@@ -1,7 +1,7 @@
 <!-- have a bar in the middle that we enter the muscle in -->
 <!-- show the muscles provided above that -->
-<input type="text" placeholder="Enter Muscle" defaultValue={Muscle}>
-<button type="button" class="btn btn-primary" (click)="addClick()">Add Workout</button>
+<input type="text" placeholder="Enter Muscle" #Muscle name="Muscle" value="">
+<button type="button" class="btn btn-primary" (click)="addClick(Muscle.value)">Add Workout</button>
 <br>
                 
 
@@ -35,12 +35,12 @@ triceps
     </thead>
     <tbody>
         <tr *ngFor="let muscleData of MuscleGroupList">
-            <td>{{ muscleData.Name }}</td>
-            <td>{{ muscleData.Type }}</td>
-            <td>{{ muscleData.Muscle }}</td>
-            <td>{{ muscleData.Equipment }}</td>
-            <td>{{ muscleData.Difficulty }}</td>
-            <td>{{ muscleData.Instructions }}</td>
+            <td>{{ muscleData.name }}</td>
+            <td>{{ muscleData.type }}</td>
+            <td>{{ muscleData.muscle }}</td>
+            <td>{{ muscleData.equipment }}</td>
+            <td>{{ muscleData.difficulty }}</td>
+            <td>{{ muscleData.instructions }}</td>
         </tr>
     </tbody>
 </table>

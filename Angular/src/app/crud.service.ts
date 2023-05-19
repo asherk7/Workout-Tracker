@@ -59,8 +59,8 @@ readonly APIUrl = "http://127.0.0.1:8000";
     return this.http.post(this.APIUrl + '/muscles/',val);
   }
 
-  deleteMuscleGroup(val:any){
-    return this.http.delete(this.APIUrl + '/muscles/'+val);
+  deleteMuscleGroup(){
+    return this.http.delete(this.APIUrl + '/muscles/');
   } 
 
 

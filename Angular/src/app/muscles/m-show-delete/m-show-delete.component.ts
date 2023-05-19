@@ -11,26 +11,24 @@ export class MShowDeleteComponent implements OnInit{
   constructor(private service:CrudService) { }
 
   MuscleGroupList:any=[];
-  muscleGroup:any;
-  Muscle:string="";
 
   ngOnInit(): void {
     this.refreshMuscleGroupList();
   }
 
-  addClick(){
-    this.muscleGroup={
-      Muscle:this.Muscle
+  addClick(item:any){
+    var val ={
+      Muscle:item
     }
-    this.service.addMuscleGroup(this.muscleGroup).subscribe(res=>{
+    this.service.addMuscleGroup(val).subscribe(res=>{
       alert(res.toString());
     })
     this.refreshMuscleGroupList();
   }
 
-  deleteClick(item:any){
+  deleteClick(){
     if(confirm('Are you sure you want to delete the exercises?')){
-      this.service.deleteMuscleGroup(item.MuscleGroupID).subscribe(data=>{
+      this.service.deleteMuscleGroup().subscribe(data=>{
         alert(data.toString());
         this.refreshMuscleGroupList();
       })
