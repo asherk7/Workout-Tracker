@@ -26,7 +26,6 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>WorkoutID</th>
             <th>Muscles/Split</th>
             <th>Date</th>
             <th>Duration</th>
@@ -37,7 +36,6 @@
     </thead>
     <tbody>
         <tr *ngFor="let workoutData of WorkoutList">
-            <td>{{ workoutData.WorkoutID }}</td>
             <td>{{ workoutData.Split }}</td>
             <td>{{ workoutData.Date }}</td>
             <td>{{ workoutData.Duration }}</td>

@@ -23,8 +23,13 @@ button{
     padding: 0.5rem;
     border: 0.2rem solid darkslateblue;
     border-radius: 0.5rem;
+    font-size: large;
     background-color: darkslateblue;
     color: white;
+}
+
+button.btn-primary{
+    width:100%;
 }
 
 table{

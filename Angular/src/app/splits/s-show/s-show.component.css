@@ -24,7 +24,12 @@ button{
     border: 0.2rem solid darkslateblue;
     border-radius: 0.5rem;
     background-color: darkslateblue;
+    text-align: center;
     color: white;
+}
+
+.accordion-button{
+    display:block;
 }
 
 table{
@@ -40,3 +45,4 @@ ol {
 	column-rule: 4px dotted darkslateblue;
 	border-radius: 0.5rem;
 }
+

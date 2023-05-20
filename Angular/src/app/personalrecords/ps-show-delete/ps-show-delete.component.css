@@ -13,6 +13,10 @@ h1 {
     color: darkslateblue;
 }
 
+button.btn-primary{
+    width:100%;
+}
+
 input {
     padding: 0.5rem;
     border: 0.2rem solid darkslateblue;
